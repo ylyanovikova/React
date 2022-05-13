@@ -5,9 +5,9 @@ import {User} from "../../components";
 import css from "./Users.module.css"
 
 
-const Users =({setChosenUser})=>{
+const Users =({setChosenUser, setPosts})=>{
     
-const [users, setUsers] = useState([]);
+const [users, setUsers] = useState(null);
 
 useEffect(()=>{
     userService.getAll().then(({data})=> setUsers(data))
@@ -16,8 +16,9 @@ useEffect(()=>{
    return( 
     <div className={css.usersBlock}>
         <h2>USERS</h2>
-        {users.map(user => <User key={user.id} user={user} setChosenUser={setChosenUser}/>)}
-    
+        {
+        users ? users.map(user => <User key={user.id} user={user} setChosenUser={setChosenUser} setPosts={setPosts}/>): "Loading..."
+        }
     </div>
     )
 }

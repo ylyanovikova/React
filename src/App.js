@@ -1,21 +1,21 @@
 import { useState } from "react";
 
-import {Users, UserDetails, Posts} from "./components/index";
+import {Users, UserDetails, Posts} from "./components";
 import css from "./App.module.css"
 
 
 function App() {
 
   const [chosenUser, setChosenUser] = useState(null);
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState(null);
 
   return (
     <div className={css.general}>
     <div className={css.df}>
-    <div><Users setChosenUser={setChosenUser}/></div>
-    <div>{chosenUser && <UserDetails chosenUser={chosenUser} setPosts={setPosts}/>}</div>
+    <div><Users setChosenUser={setChosenUser} setPosts={setPosts}/></div>
+    <div>{chosenUser && <UserDetails chosenUser={chosenUser} setPosts={setPosts} />}</div>
     </div>
-    {posts && <Posts posts={posts}/>}
+    {posts &&  <Posts posts={posts}/>}
     </div>
   );
 }

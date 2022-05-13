@@ -1,4 +1,4 @@
-import { Post } from "../Post/Post"
+import {Post} from "../../components"
 import css from "./Posts.module.css"
 
 const Posts = ({posts})=>{
