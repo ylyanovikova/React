@@ -2,3 +2,20 @@
     display: flex;
     column-gap: 40px;
 }
+
+button{
+    background-color: transparent;
+    color: rgb(46, 45, 45);
+    border: 1px solid rgb(46, 45, 45);
+    border-radius: 20px;
+    transition: 300ms;
+}
+
+button:hover{
+    box-shadow: 0 0 10px silver;
+    transition: 300ms;
+}
+
+.general{
+    color: rgb(46, 45, 45);
+}

@@ -1,15 +1,7 @@
-import { useEffect } from "react";
-
 import { postsService } from "../../services";
-
-
+import css from "./UserDetails.module.css"
 
 const UserDetails = ({chosenUser, setPosts})=>{
-
-    // let userId =null;
-    // useEffect(()=>{
-    //     postsService.getByUsersId(userId).then(({data})=> setPosts(data));
-    //   },[]);
 
     const getPosts = async(id) =>{
         const {data} = await postsService.getByUsersId(id);
@@ -18,14 +10,15 @@ const UserDetails = ({chosenUser, setPosts})=>{
 
 const {id, name, username, email, address, phone, website }= chosenUser;
     return(
-        <div>
-         <div>Id: {id}</div>  
-         <div>Name: {name}</div>  
-         <div>Username: {username}</div> 
-         <div>Email: {email}</div>  
-         <div>Address: {address.suit}, {address.street}, {address.city}</div>  
-         <div>Phone: {phone}</div>  
-         <div>Website: {website}</div> 
+        <div className={css.ud}>
+            <h2>USER DETAILS</h2>
+         <div className={css.udItem}><b>Id:</b> {id}</div>  
+         <div className={css.udItem}><b>Name:</b> {name}</div>  
+         <div className={css.udItem}><b>Username:</b> {username}</div> 
+         <div className={css.udItem}><b>Email:</b> {email}</div>  
+         <div className={css.udItem}><b>Address:</b> {address.suit}, {address.street}, {address.city}</div>  
+         <div className={css.udItem}><b>Phone:</b> {phone}</div>  
+         <div className={css.udItem}><b>Website:</b> {website}</div> 
          <button onClick={()=>{getPosts(id)}}>Show posts</button> 
         </div>
     )
