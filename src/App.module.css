@@ -1,0 +1,17 @@
+body{
+    color: rgb(26, 25, 25);
+}
+button{
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid rgb(102, 102, 102);
+    border-radius: 20px;
+    background-color: transparent;
+    color: rgb(46, 45, 45);
+    transition: .3s;
+}
+
+button:hover{
+    box-shadow: 0 0 10px silver;
+    transition: .3s;
+}
