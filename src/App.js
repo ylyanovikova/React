@@ -1,5 +1,7 @@
 import {Link, Route, Routes} from "react-router-dom";
-import { About, Comments, Home, Layouts, Posts, Users } from "./components";
+
+import { About, Comments, Home, Layouts, Posts, Users, UserDetails, PostDetails } from "./components";
+
 
 function App() {
   return (
@@ -15,10 +17,14 @@ function App() {
       <div>
         <h2>Content</h2>
         <Routes>
-          <Route path={"/"} element={<Home/>}/>
+          <Route index element={<Home/>}/>
           <Route path={"/layouts"} element={<Layouts/>}>
-              <Route path={"users"} element={<Users/>}/>
-              <Route path={"posts"} element={<Posts/>}/>
+              <Route path={"users"} element={<Users/>}>
+                <Route path={":id"} element={<UserDetails/>}/>
+              </Route>
+              <Route path={"posts"} element={<Posts/>}>
+                <Route path={":id"} element={<PostDetails/>}/>
+              </Route>
               <Route path={"comments"} element={<Comments/>}/>
           </Route>
           <Route path={"/about"} element={<About/>}/>

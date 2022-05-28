@@ -4,3 +4,7 @@ export * from "./Home/Home";
 export * from "./Layouts/Layouts";
 export * from "./Posts/Posts";
 export * from "./Users/Users";
+export * from "./User/User";
+export * from "./UserDetails/UserDetails";
+export * from "./Post/Post";
+export * from "./PostDetails/PostDetails";
