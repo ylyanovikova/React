@@ -17,7 +17,8 @@ const Users =()=>{
     return(
         <div className={css.mainBlock}>
             <div className={css.users}>
-            {users.map(user=> <User key={user.id} user={user}/>)}
+                <h1>USERS</h1>
+                {users.map(user=> <User key={user.id} user={user}/>)}
             </div>
             <div className={css.userDetails}>
                 <Outlet/>

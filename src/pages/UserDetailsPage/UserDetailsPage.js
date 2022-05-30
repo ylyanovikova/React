@@ -19,6 +19,7 @@ const UserDetailsPage = ()=>{
     },[id, state])
     return(
         <div>
+            <h1>USERS DETAILS</h1>
             {userDetails && <UserDetails user={userDetails}/>}
         </div>
     )

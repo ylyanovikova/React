@@ -4,3 +4,4 @@ export * from "./NotFound/NotFound";
 export * from "./Posts/Posts";
 export * from "./Users/Users";
 export * from "./UserDetailsPage/UserDetailsPage";
+export * from "./PostDetailsPage/PostDetailsPage";

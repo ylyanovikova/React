@@ -1,0 +1,18 @@
+.btn{
+    text-decoration: none;
+    width: 90px;
+    height: 30px;
+    margin: 10px 0 10px 0;
+    border-radius: 20px;
+    border: 1px solid rgb(73, 72, 72);
+    box-sizing: border-box;
+    padding: 5px;
+    color: rgb(73, 72, 72);
+    background-color: transparent;
+    transition: 300ms;
+}
+
+.btn:hover{
+    box-shadow: 0 0 10px silver;
+    transition: 300ms;
+}

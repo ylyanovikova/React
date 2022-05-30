@@ -23,11 +23,22 @@ a[class=active]{
     color: greenyellow;
 }
 
-/* .content{
+.navButtons{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 20px;
-    font-size: 24px;
-    text-align: justify;
-} */
+    justify-content: space-between;
+}
+
+.navButtons button{
+    width: 100px;
+    height: 20px;
+    margin: 10px;
+    background-color: transparent;
+    border: 1px solid silver;
+    border-radius: 10px;
+    transition: 300ms;
+}
+
+.navButtons button:hover{
+    box-shadow: 0 0 10px silver;
+    transform: 300ms;
+}

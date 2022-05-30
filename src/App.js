@@ -1,6 +1,7 @@
-import {Routes, Route, Navigate} from "react-router-dom"
+import {Routes, Route, Navigate} from "react-router-dom";
+
 import { MainPage } from "./layouts/MainPage";
-import {Home, Posts, Users, About, NotFound, UserDetailsPage} from "./pages"
+import {Home, Posts, Users, About, NotFound, UserDetailsPage, PostDetailsPage} from "./pages"
 
 function App() {
   return (
@@ -11,7 +12,9 @@ function App() {
         <Route path={"users"} element={<Users/>}>
           <Route path={":id"} element={<UserDetailsPage/>}/>
         </Route>
-        <Route path={"posts"} element={<Posts/>}/>
+        <Route path={"posts"} element={<Posts/>}>
+          <Route path={":id"} element={<PostDetailsPage/>}/>
+        </Route>
         <Route path={"about"} element={<About/>}/>
         <Route path={"*"} element={<NotFound/>}/>
       </Route>
