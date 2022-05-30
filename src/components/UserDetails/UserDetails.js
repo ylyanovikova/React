@@ -8,7 +8,7 @@ const UserDetails = ({user})=>{
             <div>ID: {id} Name: {name}</div>
             <div>Usermane: {username}</div>
             <div>Email: {email}</div>
-            <div>Address: {address.float}, {address.street}, {address.city}</div>
+            <div>Address: {address.street}, {address.city}</div>
         </div>
     )
 };

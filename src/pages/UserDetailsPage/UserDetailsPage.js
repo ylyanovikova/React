@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 
-import { postService } from "../../services";
+import { userService } from "../../services";
 import { UserDetails } from "../../components";
 
 const UserDetailsPage = ()=>{
@@ -12,7 +12,7 @@ const UserDetailsPage = ()=>{
     const {id} = useParams();
     useEffect(()=>{
         if(!state){
-            postService.getById(id).then(({data})=> setUserDetails(data));
+            userService.getById(id).then(({data})=> setUserDetails(data));
         } else{
             setUserDetails(state);
         }
