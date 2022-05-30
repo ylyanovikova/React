@@ -1,0 +1,36 @@
+
+.mainBlock{
+    display: flex;
+    column-gap: 50px;
+    margin: 50px;
+}
+
+.users{
+    width: 40%;
+}
+
+.users div{
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.users a{
+    text-decoration: none;
+    width: 90px;
+    height: 20px;
+    border-radius: 20px;
+    border: 1px solid rgb(73, 72, 72);
+    box-sizing: border-box;
+    padding: 5px;
+    color: rgb(73, 72, 72);
+    transition: 300ms;
+}
+
+.users a:hover{
+    box-shadow: 0 0 10px silver;
+    transition: 300ms;
+}
+
+.userDetails{
+    width: 50%;
+}
