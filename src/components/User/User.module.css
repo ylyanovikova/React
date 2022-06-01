@@ -1,0 +1,15 @@
+.btn button{
+    width: 100px;
+    height: 30px;
+    font-size: 14px;
+}
+
+.user{
+    width: 150px;
+    margin: 20px;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+}
