@@ -1,0 +1,12 @@
+.postsOfUser{
+    margin-top: 20px;
+    border-top: 1px solid darkmagenta;
+    padding: 20px;
+}
+
+.postsOfUser> div{
+    margin-bottom: 20px;
+    border: 1px solid darkmagenta;
+    border-radius: 5px;
+    padding: 10px;
+}

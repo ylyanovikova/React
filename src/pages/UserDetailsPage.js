@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { Outlet, useLocation, useParams } from "react-router-dom";
+
 import { UserDetails } from "../components";
 import { userService } from "../services";
 
@@ -18,7 +19,12 @@ const UserDetailsPage = ()=> {
 
     return(
         <div>
-            {userDetails && <UserDetails user={userDetails}/>}
+            <div>
+                {userDetails && <UserDetails user={userDetails}/>}
+            </div>
+            <div>
+                <Outlet/>
+            </div>
         </div>
     )
 };

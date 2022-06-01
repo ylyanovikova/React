@@ -1,0 +1,18 @@
+.post{
+    width: 400px;
+    margin-bottom: 20px;  
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid darkmagenta;
+    border-radius: 5px;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.post button{
+    width: 100px;
+    height: 50px;
+    font-size: 16px;
+}
+

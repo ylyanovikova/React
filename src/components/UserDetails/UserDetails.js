@@ -9,7 +9,7 @@ const UserDetails = ({user})=>{
             <div>Username: {username}</div>
             <div>Email: {email}</div>
             <div>Website: {website}</div>
-            <Button to={"#"}>Show posts</Button>
+            <Button to={`posts-of-user=${id}`}>Show posts</Button>
         </div>
     )
 };

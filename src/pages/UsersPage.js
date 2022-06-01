@@ -18,7 +18,7 @@ const UsersPage = ()=> {
             <div className={css.border}>
                 {users.map(user=> <User key={user.id} user={user}/>)}
             </div>
-            <div className={css.userDetails}>
+            <div>
                 <Outlet/>
             </div>
         </div>
