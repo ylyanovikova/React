@@ -12,3 +12,18 @@
 }
 
 
+.postsAllContent button {
+    width: 100px;
+    height: 20px;
+    margin: 10px;
+    background-color: transparent;
+    border: 1px solid silver;
+    border-radius: 10px;
+    transition: 300ms;
+}
+
+.postsAllContent button:hover{
+    box-shadow: 0 0 10px silver;
+    transform: 300ms;
+}
+
