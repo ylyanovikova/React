@@ -9,11 +9,11 @@ const init = (initState)=>{
 const reducer=(state, action)=>{
   switch(action.type){
     case "inc":
-      return {...state, count1: state.count1+1, count2: state.count2+1}
+      return {...state, count1: state.count1++, count2: state.count2++}
     case "dec":
-      return{...state, count1: state.count1-1, count2: state.count2+1}
+      return{...state, count1: state.count1--, count2: state.count2++}
     case "reset":
-      return{...state, count1: 0, count2: state.count2+1}
+      return{...state, count1: 0, count2: state.count2++}
   }
 }
 
