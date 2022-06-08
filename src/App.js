@@ -1,48 +1,69 @@
-import { useReducer, useRef } from "react";
+import { useReducer, useState} from "react";
 
-const initState = (init)=>{
-  return {cats: init, dogs:init}
-};
+
 
 const reducer = (state, action)=>{
-  switch(action.type){
-    case "cat":
-      return state.cats.push(action.cat)
-    case "dog":
-      return state.dogs.push(action.dog)
+  const {type, payload} = action;
+  switch(type){
+    case "createCat":
+      return {...state, cats: [...state.cats, {name: payload, id: Date.now()}]}
+    case "deleteCat":
+      return {...state, cats: state.cats.filter(cat=> cat.id !== payload)}
+    case "createDog":
+      return {...state, dogs: [...state.dogs, {name: payload, id: Date.now()}]}
+    case "deleteDog":
+      return {...state, dogs: state.dogs.filter(dog=> dog.id !== payload)}
   }
 }
 
 function App() {
-  const [state, dispatch] = useReducer(reducer, [], initState);
-  const catName= useRef(null);
-  const dogName= useRef(null);
+  const [state, dispatch] = useReducer(reducer, {cats: [], dogs: []});
+  const [cat, setCat] = useState("");
+  const [dog, setDog] = useState("");
 
-  const catSubmit = ()=>{
-    let cat = catName.current.value;
-    dispatch({type: "cat"})
-    console.log(cat);
-    console.log(state);
 
-  }
-  const dogSubmit = ()=>{
-    let dog = dogName.current.value;
-    dispatch({type:"dog"})
-    console.log(dog); 
-    console.log(state); 
+  const catCreate = ()=>{
+    dispatch({type: "createCat", payload: cat});
+    setCat("");
+  };
+  const dogCreate = ()=>{
+    dispatch({type: "createDog", payload: dog})
+    setDog("");
   }
 
   return (
     <div>
-      <form onSubmit={(e)=> e.preventDefault()}>
-        Cat: <input type="text" ref={catName} placeholder={"name"}/>
-        <button onClick={()=>catSubmit()}>Save Cat</button>
-      </form>
-
-      <form onSubmit={(e)=> e.preventDefault()}>
-        Dog: <input type="text" ref={dogName} placeholder="name"/>
-        <button onClick={()=>dogSubmit()}>Save dog</button>
-      </form>
+      <div style={{display: "flex", justifyContent: "space-around"}}>
+        <div>
+          <label>Cat name: <input type="text" onChange={({target})=> setCat(target.value)} value={cat}/></label>
+          <button onClick={()=> catCreate()}>Save cat</button>
+        </div>
+        <div>
+          <label>Dog name: <input type="text" onChange={({target})=> setDog(target.value)} value={dog}/></label>
+          <button onClick={()=> dogCreate()}>Save dog</button>
+        </div>
+      </div>
+      <hr/>
+      <div style={{display: "flex", justifyContent: "space-around"}}>
+          <div>
+          <h1>CATS</h1>
+          {state.cats.map(cat=>
+            <div key={cat.id}>
+                {cat.name}
+                <button onClick={()=> dispatch({type: "deleteCat", payload: cat.id})}>Delete</button>
+            </div>
+          )}
+          </div>
+          <div>
+            <h1>DOGS</h1>
+            {state.dogs.map(dog=>
+              <div key={dog.id}>
+                {dog.name}
+                <button onClick={()=> dispatch({type: "deleteDog", payload: dog.id})}>Delete</button>
+              </div>
+              )}
+          </div>
+      </div>
     </div>
   );
 }
