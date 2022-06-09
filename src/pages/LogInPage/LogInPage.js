@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 
 import { useAuth } from "../../hooks/useAuth";
+import css from "./LogInPage.module.css";
 
 const LogInPage = ()=>{
 
@@ -19,8 +20,9 @@ const LogInPage = ()=>{
     }
 
     return(
-        <div>
-            <input type={"text"} ref={name} placeholder={"name"}></input>
+        <div className={css.logIn}>
+            <h2>LOG IN</h2>
+            <input type={"text"} ref={name} placeholder={"Enter your name"}></input>
             <button onClick={()=>login()}>logIn</button>
         </div>
     )

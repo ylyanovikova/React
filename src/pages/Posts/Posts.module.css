@@ -15,6 +15,9 @@
 .postsAllContent button {
     width: 100px;
     height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 10px;
     background-color: transparent;
     border: 1px solid silver;
@@ -22,8 +25,21 @@
     transition: 300ms;
 }
 
+.postsAllContent a{
+    text-decoration: none;
+}
+
 .postsAllContent button:hover{
     box-shadow: 0 0 10px silver;
     transform: 300ms;
 }
 
+.buttons{
+    display: flex;
+    justify-content: center;
+    column-gap: 50px;
+}
+
+.buttons button{
+    width: 150px;
+}

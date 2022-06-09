@@ -31,6 +31,16 @@ const Posts = ()=>{
             setQuery(queryObj.page = 1) 
         }
         setQuery(queryObj);
+    };
+
+    const prevPage=()=>{
+        let queryObj = Object.fromEntries(query.entries());
+        if(queryObj.page>1){
+            queryObj.page--;
+        } else{
+            setQuery(queryObj.page = 9)
+        }
+        setQuery(queryObj);
     }
 
     return(
@@ -41,7 +51,10 @@ const Posts = ()=>{
                 <div className={css.postsCards}>
                 {posts.map(post => <Post key={post.id} post={post}/>)}
                 </div>
-                <button onClick={()=>nextPage()}>Next page</button>
+                <div className={css.buttons}>
+                    <button onClick={prevPage}>Previous posts</button>
+                    <button onClick={()=>nextPage()}>Next posts</button>
+                </div>
             </div>
         </div>
     )
