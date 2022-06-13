@@ -1,10 +1,11 @@
+import { Counter } from "./components";
 
 function App() {
 
 
   return (
     <div>
-      Hello
+      <Counter/>
     </div>
   );
 }
