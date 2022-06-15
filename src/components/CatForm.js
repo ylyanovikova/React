@@ -7,7 +7,6 @@ const CatForm = ()=>{
     const catName = useRef();
     const dispatch = useDispatch();
 
-
     return(
         <div>
             <label>Cat name: <input type="text" placeholder="name" ref={catName} /></label>

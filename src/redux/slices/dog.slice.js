@@ -7,10 +7,9 @@ const initState={
 const dogSlice = createSlice({
     name: "dogSlice",
     initialState: initState,
-    redusers:{
+    reducers:{
         addDog: (state, action)=>{
-            const {name} = action.payload
-            const newDog = {name, id: new Date().getTime()};
+            const newDog = {name: action.payload, id: new Date().getTime()};
             state.dogs.push(newDog)
         },
         deleteDog: (state, action)=>{

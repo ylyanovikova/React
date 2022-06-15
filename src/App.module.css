@@ -1,0 +1,32 @@
+.wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrap button{
+    border: 1px solid grey;
+    border-radius: 5px;
+    background: rgb(33, 54, 212);
+    color: rgb(222, 225, 255);
+    margin: 5px 10px;
+    transition: 300ms;
+}
+
+.wrap button:hover{
+    cursor: pointer;
+    background: rgb(237, 219, 25);
+    color: rgb(253, 251, 191);
+    border-radius: 20px;
+    transition: 300ms;
+}
+
+.forms{
+    display: flex;
+    column-gap: 40px;
+}
+
+.info{
+    display: flex;
+    column-gap: 80px;
+}

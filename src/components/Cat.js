@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+
 import { catActions } from "../redux";
 
 const Cat = ({cat})=>{

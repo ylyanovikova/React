@@ -1,22 +1,19 @@
 import { CatForm, DogForm, Dogs } from "./components";
 import { Cats } from "./components/Cats";
+import css from "./App.module.css";
 
 
 function App() {
-
- 
-
   return (
-    <div>
-      <div>
+    <div className={css.wrap}>
+      <div className={css.forms}>
         <CatForm/>
         <DogForm/>
       </div>
-      <div>
+      <div className={css.info}>
         <Cats/>
         <Dogs/>
       </div>
-
     </div>
     )
 }
