@@ -1,0 +1,35 @@
+.wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrap button {
+    border: 1px solid grey;
+    border-radius: 5px;
+    background: rgb(102, 101, 101);
+    color: rgb(253, 249, 242);
+    margin: 5px 10px;
+    transition: 300ms;
+}
+
+.wrap button:hover{
+    cursor: pointer;
+    background: rgb(253, 249, 242);
+    color: rgb(102, 101, 101);
+    border-radius: 20px;
+    transition: 300ms;
+
+}
+
+.df{
+    display: flex;
+    column-gap: 50px;
+}
+
+.df2{
+    display: flex;
+    column-gap: 80px;
+}
+
+

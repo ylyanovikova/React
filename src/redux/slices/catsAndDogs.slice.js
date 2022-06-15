@@ -12,7 +12,6 @@ const catsAndDogsSlice = createSlice({
     reducers:{
         addCat: (state, action) => {
             const cat = action.payload;
-            console.log(cat);
             const newCat = {name: cat, id: new Date().getTime()};
             state.cats.push(newCat)
         },

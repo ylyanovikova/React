@@ -1,4 +1,5 @@
-import { useDispatch } from "react-redux"
+import { useDispatch } from "react-redux";
+
 import { catsDogsActions } from "../redux/slices/catsAndDogs.slice";
 
 const Cat = ({cat}) =>{

@@ -1,13 +1,13 @@
-import { useSelector } from "react-redux"
+import { useSelector } from "react-redux";
+
 import { Cat } from "./Cat";
 
 const Cats = ()=>{
     const {cats} = useSelector(state=> state.catsAndDogs);
-    console.log(cats);
 
     return(
         <div>
-            Cats
+            <h1>CATS</h1>
             {cats.map(cat=> <Cat key={cat.id} cat={cat}/>)}
         </div>
     )
