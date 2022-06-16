@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 import {CarForm, Cars} from "./components";
-import css from "./App.module.css"
 
 function App() {
 
