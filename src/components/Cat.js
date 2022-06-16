@@ -2,14 +2,16 @@ import { useDispatch } from "react-redux";
 
 import { catActions } from "../redux";
 
-const Cat = ({cat})=>{
+const Cat = ({ cat }) => {
 
     const dispatch = useDispatch();
-    return(
+
+    return (
         <div>
             {cat.id} = {cat.name}
-            <button onClick={()=> dispatch(catActions.deleteCat(cat.id))}>Delete</button>
+            <button onClick={() => dispatch(catActions.deleteCat(cat.id))}>Delete</button>
+            <button onClick={() => dispatch(catActions.setCatForUpdate({ cat }))}>Update</button>
         </div>
     )
 };
-export { Cat}
+export { Cat };
