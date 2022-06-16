@@ -1,5 +1,4 @@
-import { CatForm, DogForm, Dogs } from "./components";
-import { Cats } from "./components/Cats";
+import { CatForm, DogForm, Dogs, Cats } from "./components";
 import css from "./App.module.css";
 
 

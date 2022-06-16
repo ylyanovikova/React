@@ -1,5 +1,6 @@
 import { combineReducers, configureStore} from "@reduxjs/toolkit";
 
+
 import catReducer from "./slices/catSlice";
 import dogReducer from "./slices/dog.slice";
 
