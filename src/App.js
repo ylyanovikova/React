@@ -23,9 +23,6 @@ const reducer=(state, action)=>{
 function App() {
   const [state, dispatch] = useReducer(reducer, 0, init);
 
-
-
-
   return (
     <div>
       Number: {state.count1}    Count of operation: {state.count2} Count x2: {state.count3}
