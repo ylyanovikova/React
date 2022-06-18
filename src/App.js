@@ -1,10 +1,16 @@
+import { CarForm, Cars } from "./components";
 
 function App() {
 
 
   return (
     <div>
-      Hello
+      <div>
+        <CarForm/>
+      </div>
+      <div>
+        <Cars/>
+      </div>
     </div>
   );
 }
