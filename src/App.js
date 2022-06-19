@@ -1,10 +1,20 @@
+import { Navigate, Route, Routes } from "react-router-dom";
+
+import { CarsPage, CarDetailsPage, HomePage } from "./pages";
+
 
 function App() {
 
-
   return (
     <div>
-      Hello
+      <Routes>
+        <Route path={"/"} element={<HomePage />}>
+          <Route index element={<Navigate to={"cars"} />} />
+          <Route path={"cars"} element={<CarsPage />} />
+          <Route path={"/carDetails"} element={<CarDetailsPage />} />
+        </Route>
+      </Routes>
+
     </div>
   );
 }
