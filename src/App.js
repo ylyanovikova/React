@@ -6,10 +6,10 @@ function App() {
   return (
     <div>
       <div>
-        <CarForm/>
+        <CarForm />
       </div>
       <div>
-        <Cars/>
+        <Cars />
       </div>
     </div>
   );

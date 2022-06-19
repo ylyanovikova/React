@@ -1,13 +1,13 @@
-const Car = ({car})=> {
-    const { model, price, year} = car;
+const Car = ({ car }) => {
+    const { model, price, year } = car;
 
-    return(
+    return (
         <div>
             <div>Model: {model}</div>
             <div>Price: {price}</div>
             <div>Year: {year}</div>
-            <br/>
+            <br />
         </div>
     )
 };
- export {Car};
+export { Car };
