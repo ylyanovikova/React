@@ -18,8 +18,8 @@ const createCar = createAsyncThunk(
     "carSlice/createCar",
     async ({car}, { rejectWithValue})=>{
         try{
-            console.log(car);
             const {data} = await carService.createCar(car);
+            console.log("try");
             return data;
         } catch(e){
             return rejectWithValue({formError: e.response.data});
@@ -31,19 +31,18 @@ const carSlice = createSlice({
     name: "carSlice",
     initialState,
     reducers: {},
-    extraReducers:(builder)=> {
-        builder
-        .addCase(getAll.fulfilled, (state, action)=>{
+    extraReducers:{
+        [getAll.fulfilled]: (state, action)=>{
             state.cars = action.payload
-        })
-        .addCase(createCar.fulfilled, (state, action)=>{
-            console.log("action.payload");
+        },
+        [createCar.fulfilled]: (state, action)=>{
+            console.log(action);
             state.cars.push(action.payload)
-        })
+        }
     }
 });
 
-const {reducer: carReducer, actions} = carSlice;
+const {reducer: carReducer} = carSlice;
 
 export default carReducer;
 

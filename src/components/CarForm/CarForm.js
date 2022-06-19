@@ -1,13 +1,14 @@
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 
-import { carActions } from "../../redux/slices/car.slice";
+import { carActions } from "../../redux";
 
 const CarForm = () => {
     const { register, reset, handleSubmit } = useForm();
     const { formErrors } = useSelector(state => state.cars);
 
     const dispatch = useDispatch();
+    
     const submit = async (newCar) => {
         await dispatch(carActions.createCar({ car: newCar }));
     };
