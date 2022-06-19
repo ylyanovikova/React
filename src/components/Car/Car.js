@@ -1,14 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Car = ({ car }) => {
-    const { model, price, year } = car;
+    const { id, model, price, year } = car;
+    let navigator = useNavigate();
     return (
         <div>
             <br/>
+            <div>{id}</div>
             <div>Model: {model}</div>
             <div>Price: {price}</div>
             <div>Year: {year}</div>
-            <Link to={"/carDetails"} state={car}>Show details</Link>
+            <Link to={`/cars${id}`} state={car}>Show details</Link>
         </div>
     )
 };
