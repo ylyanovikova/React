@@ -6,9 +6,9 @@ import { carActions } from "../../redux";
 const CarForm = () => {
     const { register, reset, handleSubmit } = useForm();
     const dispatch = useDispatch();
-    
-    const { formErrors } = useSelector(state => state.cars);
-    
+
+    const { formErrors} = useSelector(state => state.cars);
+
     const submit = async (newCar) => {
         await dispatch(carActions.createCar({ car: newCar }));
         console.log(newCar);

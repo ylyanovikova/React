@@ -4,7 +4,7 @@ import { carService } from "../../services/car.service";
 
 const initialState = {
     cars: [],
-    formError: {}
+    formError: {},
 };
 
 const getAll = createAsyncThunk(
@@ -20,7 +20,7 @@ const createCar = createAsyncThunk(
     async ({ car }, { rejectWithValue }) => {
         try {
             console.log(car);
-            const {data} = await carService.create(car)
+            const { data } = await carService.create(car)
             return data;
         } catch (e) {
             return rejectWithValue({ formError: e.response.data });
@@ -30,10 +30,9 @@ const createCar = createAsyncThunk(
 
 const deleteCar = createAsyncThunk(
     "carSlice/deleteCar",
-    async({carId})=>{
-        const {data} = await carService.deleteById(carId);
-        console.log(data);
-        return data;
+    async ({ carId }) => {
+        await carService.deleteById(carId);
+        return carId;
     }
 )
 
@@ -49,9 +48,10 @@ const carSlice = createSlice({
             console.log(action);
             state.cars.push(action.payload);
         },
-        [deleteCar.fulfilled]: (state, action)=>{
-            const index = state.cars.findIndex(action.payload);
-            state.cars.splice(index, 1);
+        [deleteCar.fulfilled]: (state, action) => {
+            const carId = action.payload;
+            const newCars = state.cars.filter((car) => car.id !== carId);
+            state.cars = newCars;
         }
     }
 });
