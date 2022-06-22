@@ -15,6 +15,12 @@ const CarDetails = () => {
     const deleteCar = (id) => {
         dispatch(carActions.deleteCar({ carId: id }));
         navigate("/cars");
+    };
+
+    const setCarForUpdate = (car)=>{
+        dispatch(carActions.carForUpdate({carForUpdate: car}));
+        navigate("/cars");
+        console.log(car);
     }
 
     return (
@@ -23,7 +29,7 @@ const CarDetails = () => {
             <div>Model: {model}</div>
             <div>Price: {price}</div>
             <div>Year: {year}</div>
-            <button>Update</button>
+            <button onClick={()=> setCarForUpdate(car)}>Update</button>
             <button onClick={() => deleteCar(id)}>Delete</button>
         </div>
     )
