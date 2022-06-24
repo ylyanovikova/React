@@ -47,9 +47,7 @@ const carForUpdate = createAsyncThunk(
 const updateCar = createAsyncThunk(
     "carSlice/updateCar",
     async ({ car, carForUpdate }) => {
-
         const { data } = await carService.updateById(carForUpdate.id, car);
-        console.log(data);
         return data;
 
     }
