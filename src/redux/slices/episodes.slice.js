@@ -1,4 +1,4 @@
-import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { episodesService } from '../../services/episodes.service';
 
@@ -6,14 +6,15 @@ const initialState = {
     pages: null,
     prev: null,
     next: null,
-    episodes: []
+    episodes: [],
+    currentEpisode: null,
+    currentSeason: null
 };
 
 const getAll = createAsyncThunk(
     "episodesSlice/getAll",
-    async({page})=>{
-        const {data} = await episodesService.getAll(page);
-        console.log(data);
+    async ({ page }) => {
+        const { data } = await episodesService.getAll(page);
         return data;
     }
 );
@@ -21,10 +22,17 @@ const getAll = createAsyncThunk(
 const episodesSlice = createSlice({
     name: "episodesSlice",
     initialState,
-    extraReducers: (builder)=> {
+    reducers: {
+        currentEpisodeAndSeason: (state, action) => {
+            const { episode, season } = action.payload;
+            state.currentEpisode = episode;
+            state.currentSeason = season;
+        }
+    },
+    extraReducers: (builder) => {
         builder
-            .addCase(getAll.fulfilled, (state, action)=>{
-                const { info: {pages, prev, next}, results} = action.payload;
+            .addCase(getAll.fulfilled, (state, action) => {
+                const { info: { pages, prev, next }, results } = action.payload;
                 state.pages = pages;
                 state.prev = prev;
                 state.next = next;
@@ -34,67 +42,11 @@ const episodesSlice = createSlice({
 
 });
 
-const {reducer: episodesReducer} = episodesSlice;
+const { reducer: episodesReducer, actions: { currentEpisodeAndSeason } } = episodesSlice;
 
-export {episodesReducer};
+export { episodesReducer };
 
 export const episodesActions = {
-    getAll
+    getAll,
+    currentEpisodeAndSeason
 };
-
-
-
-
-
-
-
-
-// import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-
-// import { episodesService } from "../../services";
-
-
-// const initState = {
-//     prev: null,
-//     next: null,
-//     pages: null,
-//     episodes: []
-// };
-
-// // const getAll = createAsyncThunk(
-// //     "episodesSlice/getAll",
-// //     async ({ page }) => {
-// //         const { data } = await episodesService.getAll(page);
-// //         console.log(data);
-// //         return data;
-// //     }
-// // );
-
-// const episodesSlice = createSlice({
-//     name: "episodesSlice",
-//     initState,
-//     // extraReducers: (builder) => {
-//     //     builder
-//     //         .addCase(getAll.fulfilled, (state, action) => {
-//     //             const { pages, prev, next, results } = action.payload;
-//     //             state.pages = pages;
-//     //             state.prev = prev;
-//     //             state.next = next;
-//     //             state.episodes = results;
-//     //         })
-//     // }
-// });
-
-// const { reducer: episodesReducer } = episodesSlice;
-
-// const episodesActions = {
-//     // getAll
-// }
-
-// export {
-//     episodesReducer,
-//     episodesActions
-// }
-
-
-

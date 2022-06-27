@@ -6,4 +6,4 @@ const urls = {
 };
 
 export default baseURL;
-export {urls};
+export { urls };

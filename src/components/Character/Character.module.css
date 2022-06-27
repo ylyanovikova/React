@@ -1,0 +1,15 @@
+.character{
+    width: 400px;
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid silver;
+    row-gap: 5px;
+}
+
+.character img{
+    width: 350px;
+    height: 350px;
+}

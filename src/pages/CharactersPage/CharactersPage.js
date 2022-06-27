@@ -1,11 +1,11 @@
 import { Characters } from "../../components";
 
-const CharactersPage = ()=>{
-    return(
+const CharactersPage = () => {
+    return (
         <div>
-            <Characters/>
+            <Characters />
         </div>
     )
 };
 
-export {CharactersPage};
+export { CharactersPage };
