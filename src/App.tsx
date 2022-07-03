@@ -1,11 +1,13 @@
 import { FC } from "react";
 
-const App:FC = () =>{
+import { Users } from "./components";
+
+const App: FC = () => {
 
 
   return (
     <div>
-      Hello
+      <Users />
     </div>
   );
 }
