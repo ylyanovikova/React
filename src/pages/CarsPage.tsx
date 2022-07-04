@@ -2,10 +2,11 @@ import { FC } from "react";
 import { Outlet } from "react-router-dom";
 
 import { Cars } from "../components";
+import css from "./CarsPage.module.css";
 
 const CarsPage: FC = () => {
     return (
-        <div style={{display:"flex"}}>
+        <div className={css.carsPage}>
             <Cars />
             <Outlet />
         </div>

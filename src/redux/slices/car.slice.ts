@@ -1,13 +1,16 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+
 import { ICar } from "../../interfaces";
 import { carService } from "../../services";
 
 interface IState {
-    cars: ICar[]
+    cars: ICar[],
+    carForUpdate: ICar | null
 };
 
 const initialState: IState = {
-    cars: []
+    cars: [],
+    carForUpdate: null
 };
 
 const getAll = createAsyncThunk<ICar[], void>(
@@ -37,7 +40,11 @@ const deleteById = createAsyncThunk<{ id: string }, { id: string }>(
 const carSlice = createSlice({
     name: "carSlice",
     initialState,
-    reducers: {},
+    reducers: {
+        // setCarForUpdate: (state, action)=>{
+        //     state.carForUpdate = action.payload
+        // }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(getAll.fulfilled, (state, action) => {
@@ -54,12 +61,13 @@ const carSlice = createSlice({
     }
 });
 
-const { reducer: carReducer } = carSlice;
+const { reducer: carReducer, actions: setCarForUpdate } = carSlice;
 
 const carActions = {
     getAll,
     createCar,
-    deleteById
+    deleteById,
+    setCarForUpdate
 }
 
 export {

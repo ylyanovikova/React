@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
+
 import { MainLayout } from "./layouts";
 import { CarDetailsPage, CarsPage } from "./pages";
 
