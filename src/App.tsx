@@ -1,12 +1,20 @@
 import { FC } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
+import { MainLayout } from "./layouts";
+import { CarDetailsPage, CarsPage } from "./pages";
 
-const App:FC = () =>{
+const App: FC = () => {
 
 
   return (
-    <div>
-      Hello
-    </div>
+    <Routes>
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<Navigate to={"cars"} />} />
+        <Route path={"cars"} element={<CarsPage />}>
+          <Route path={"carDetails"} element={<CarDetailsPage />} />
+        </Route>
+      </Route>
+    </Routes>
   );
 }
 
