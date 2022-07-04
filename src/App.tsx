@@ -11,7 +11,7 @@ const App: FC = () => {
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Navigate to={"cars"} />} />
         <Route path={"cars"} element={<CarsPage />}>
-          <Route path={"carDetails"} element={<CarDetailsPage />} />
+          <Route path={":id"} element={<CarDetailsPage />} />
         </Route>
       </Route>
     </Routes>

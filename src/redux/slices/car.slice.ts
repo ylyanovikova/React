@@ -18,6 +18,22 @@ const getAll = createAsyncThunk<ICar[], void>(
     }
 );
 
+const createCar = createAsyncThunk<ICar, { car: ICar }>(
+    "carSlice/createCar",
+    async ({ car }) => {
+        const { data } = await carService.create(car);
+        return data;
+    }
+);
+
+const deleteById = createAsyncThunk<{ id: string }, { id: string }>(
+    "carSlice/deleteById",
+    async ({ id }) => {
+        await carService.deleteById(id);
+        return { id }
+    }
+)
+
 const carSlice = createSlice({
     name: "carSlice",
     initialState,
@@ -27,13 +43,23 @@ const carSlice = createSlice({
             .addCase(getAll.fulfilled, (state, action) => {
                 state.cars = action.payload
             })
+            .addCase(createCar.fulfilled, (state, action) => {
+                state.cars.push(action.payload)
+            })
+            .addCase(deleteById.fulfilled, (state, action) => {
+                const { id } = action.payload;
+                const newCars = state.cars.filter((car) => car.id?.toString() !== id);
+                state.cars = newCars;
+            })
     }
 });
 
-const { reducer: carReducer, actions } = carSlice;
+const { reducer: carReducer } = carSlice;
 
 const carActions = {
-    getAll
+    getAll,
+    createCar,
+    deleteById
 }
 
 export {

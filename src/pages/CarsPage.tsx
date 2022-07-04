@@ -5,7 +5,7 @@ import { Cars } from "../components";
 
 const CarsPage: FC = () => {
     return (
-        <div>
+        <div style={{display:"flex"}}>
             <Cars />
             <Outlet />
         </div>
