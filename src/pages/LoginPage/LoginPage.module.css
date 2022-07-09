@@ -1,0 +1,15 @@
+.LoginPage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.LoginPage h1{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.LoginPage a{
+    margin-top: 20px;
+    color: rgb(72, 72, 72);
+}
