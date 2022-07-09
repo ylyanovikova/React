@@ -1,20 +1,41 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
+import { userService } from "../../services";
 import css from "./AuthForm.module.css";
+import { authActions } from "../../redux/slices";
 
 const AuthForm = () => {
 
     const { handleSubmit, register, reset, setValue } = useForm();
     const [isLogin, setIsLogin] = useState(null);
-    const { pathname } = useLocation();
+    const { pathname, state } = useLocation();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+
+
 
     useEffect(() => {
         pathname === "/register" ? setIsLogin(false) : setIsLogin(true)
-    }, [pathname])
+    }, [pathname]);
 
-    const submit = () => {
+    const submit = async (user) => {
+        try {
+            if (!isLogin) {
+                await userService.create(user);
+                navigate('/login');
+            } else{
+                await dispatch(authActions.getTokens({ user }));
+                navigate(state?.pathname, {replace:true});
+                console.log(state.pathname);
+                console.log("ghjk");
+            }
+        } catch (e) {
+
+        }
 
     }
 

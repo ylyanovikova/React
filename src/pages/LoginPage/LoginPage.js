@@ -8,7 +8,7 @@ const LoginPage = () => {
         <div className={css.LoginPage}>
             <h1>LogIn</h1>
             <AuthForm />
-            <Link to={"register"}>Go to registration</Link>
+            <Link to={"/register"}>Go to registration</Link>
         </div>
     )
 };

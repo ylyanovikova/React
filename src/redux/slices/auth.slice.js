@@ -1,0 +1,46 @@
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+
+import { authService } from "../../services";
+
+const initialState = {
+    isAuth: null,
+    loginError: false
+};
+
+const getTokens = createAsyncThunk(
+    "authSlice/getTokens",
+    async ({ user }) => {
+        const { data } = await authService.login(user);
+        return data
+    }
+);
+
+const authSlice = createSlice({
+    name: "authSlice",
+    initialState,
+    reducers: {},
+    extraReducers: (builder) => {
+        builder
+            .addCase(getTokens.fulfilled, (state, action) => {
+                state.isAuth = true;
+                const { access, refresh } = action.payload;
+                localStorage.setItem("access", access);
+                localStorage.setItem("refresh", refresh);
+            })
+            .addCase(getTokens.rejected, (state, action) => {
+                state.loginError = true;
+            })
+    }
+});
+
+const { reducer: authReducer, actions } = authSlice;
+
+const authActions = {
+    getTokens
+}
+
+export {
+    authReducer,
+    authActions
+};
+
