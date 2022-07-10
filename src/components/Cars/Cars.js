@@ -12,7 +12,7 @@ const Cars = () => {
 
     useEffect(() => {
         dispatch(carActions.getAll());
-    }, []);
+    }, [dispatch]);
 
     let carsLength = false;
 
