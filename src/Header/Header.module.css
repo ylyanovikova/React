@@ -1,10 +1,19 @@
 .Header{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     height: 100px;
     background: rgb(56, 66, 58);
+    box-sizing: border-box;
+    padding: 0px 50px;
 }
+
+.HeaderMenu{
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
 
 .Header a {
     text-decoration: none;
@@ -40,4 +49,15 @@
     box-shadow: 0 0 20px white;
     text-shadow: 0 0 20px white;
     transition: 300ms;
+}
+
+.Header h2{
+    margin: 0px 30px 0px 20px;
+    color: white;
+    font-size: 14px;
+}
+
+.auth{
+    display: flex;
+    align-items: center;
 }

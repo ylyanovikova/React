@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { carActions } from "../../redux/slices";
 import { Car } from "../Car/Car";
-import css from "./Car.module.css";
+import css from "./Cars.module.css";
 
 const Cars = () => {
     const { cars } = useSelector(state => state.carReducer);
@@ -12,11 +12,21 @@ const Cars = () => {
 
     useEffect(() => {
         dispatch(carActions.getAll());
-    }, [])
+    }, []);
+
+    let carsLength = false;
+
+    if (cars.length >= 0) {
+        carsLength = true;
+    }
 
     return (
-        <div className={css.cars}>
-            {cars.map(car=> <Car key={car.id} car={car}/>)}
+        <div className={css}>
+            <h1>{carsLength ? "CARS" : "Create a car"}</h1>
+
+            <div className={css.cars}>
+                {cars.map(car => <Car key={car.id} car={car} />)}
+            </div>
         </div>
     )
 

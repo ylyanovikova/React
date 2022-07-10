@@ -11,12 +11,11 @@ let isRefreshing = false;
 
 axiosService.interceptors.request.use((config) => {
     const access = localStorage.getItem("access");
-    if(access){
+    if (access) {
         config.headers.Authorization = `Bearer ${access}`;
     }
     return config
 });
-
 
 axiosService.interceptors.response.use((config) => {
     return config
@@ -26,13 +25,12 @@ axiosService.interceptors.response.use((config) => {
         if (error.response?.status === 401 && error.config && !isRefreshing && refreshToken) {
             isRefreshing = true;
             const refreshToken = localStorage.getItem("refresh");
-
             try {
                 const { data } = await authService.refresh(refreshToken);
+                console.log(data);
                 const { access, refresh } = data;
                 localStorage.setItem("access", access);
                 localStorage.setItem("refresh", refresh)
-
             } catch (error) {
                 localStorage.removeItem("access");
                 localStorage.removeItem("refresh");

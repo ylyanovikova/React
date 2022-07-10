@@ -33,7 +33,7 @@ const deleteById = createAsyncThunk(
 
 const updateById = createAsyncThunk(
     "carSlice/updateById",
-    async ({ id, car }, {dispatch}) => {
+    async ({ id, car }, { dispatch }) => {
         const { data } = await carService.updateById(id, car);
         dispatch(update(data));
     }
@@ -64,10 +64,6 @@ const carSlice = createSlice({
                 const index = state.cars.findIndex(car => car.id === id);
                 state.cars.splice(index, 1);
             })
-            // .addCase(updateById.fulfilled, (state, action) => {
-            //     const car = state.cars.find(car => car.id === action.payload.id);
-            //     const newCar = Object.assign(action.payload, car);
-            // })
     }
 });
 

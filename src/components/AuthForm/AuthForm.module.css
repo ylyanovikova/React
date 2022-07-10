@@ -22,3 +22,13 @@
     border-radius: 10px;
     transition: 300ms;
 }
+
+
+.AuthForm span{
+font-size: 12px;
+color: rgb(161, 161, 161);
+}
+    
+.AuthForm button:disabled{
+    color: silver;
+}

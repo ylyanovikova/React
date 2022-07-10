@@ -1,4 +1,4 @@
-import {Outlet} from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 import { Header } from "../../components";
 import css from "./MainLayout.module.css";
@@ -6,8 +6,8 @@ import css from "./MainLayout.module.css";
 const MainLayout = () => {
     return (
         <div className={css}>
-            <Header/>
-            <Outlet/>
+            <Header />
+            <Outlet />
         </div>
     )
 };
