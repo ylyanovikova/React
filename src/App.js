@@ -1,10 +1,19 @@
+import { useDispatch } from "react-redux";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { RequireAuth } from "./hoc/RequireAuth";
 
 import { MainLayout } from "./layouts/MainLayout/MainLayout";
 import { AboutPage, CarsPage, HomePage, LoginPage, RegisterPage, UserDetailsPage } from "./pages";
+import { authActions } from "./redux/slices";
 
 function App() {
+  const dispatch = useDispatch();
+  const access = localStorage.getItem("access");
+
+  if(access){
+    dispatch(authActions.setAuth());
+  }
+  
 
 
   return (
@@ -16,7 +25,7 @@ function App() {
           <RequireAuth>
             <CarsPage />
           </RequireAuth>
-          }/>
+        } />
         <Route path={"about"} element={<AboutPage />} />
         <Route path={"userdetails"} element={<UserDetailsPage />} />
         <Route path={"login"} element={<LoginPage />} />

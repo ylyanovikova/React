@@ -22,3 +22,22 @@
 .Header a[class='active']{
     text-shadow: 0 0 20px white;
 }
+
+.Header button{
+    height: 40px;
+    width: 80px;
+    border: 1px solid white;
+    border-radius: 50px;
+    box-shadow: 0 0 10px white;
+    background: rgb(56, 66, 58);
+    color: white;
+    font-size: 17px;
+    transition: 300ms;
+}
+
+
+.Header button:hover{
+    box-shadow: 0 0 20px white;
+    text-shadow: 0 0 20px white;
+    transition: 300ms;
+}

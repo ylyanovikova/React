@@ -18,7 +18,14 @@ const getTokens = createAsyncThunk(
 const authSlice = createSlice({
     name: "authSlice",
     initialState,
-    reducers: {},
+    reducers: {
+        logOut: (state) => {
+            state.isAuth = false;
+        },
+        setAuth: (state) => {
+            state.isAuth = true;
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(getTokens.fulfilled, (state, action) => {
@@ -27,16 +34,18 @@ const authSlice = createSlice({
                 localStorage.setItem("access", access);
                 localStorage.setItem("refresh", refresh);
             })
-            .addCase(getTokens.rejected, (state, action) => {
+            .addCase(getTokens.rejected, (state) => {
                 state.loginError = true;
             })
     }
 });
 
-const { reducer: authReducer, actions } = authSlice;
+const { reducer: authReducer, actions: { logOut, setAuth } } = authSlice;
 
 const authActions = {
-    getTokens
+    getTokens,
+    logOut,
+    setAuth
 }
 
 export {

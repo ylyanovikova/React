@@ -12,7 +12,7 @@ const AuthForm = () => {
     const { handleSubmit, register, reset, setValue } = useForm();
     const [isLogin, setIsLogin] = useState(null);
     const { pathname, state } = useLocation();
-    const navigate = useNavigate();
+    const navigate= useNavigate();
     const dispatch = useDispatch();
 
 
@@ -29,12 +29,10 @@ const AuthForm = () => {
                 navigate('/login');
             } else{
                 await dispatch(authActions.getTokens({ user }));
-                navigate(state?.pathname, {replace:true});
-                console.log(state.pathname);
-                console.log("ghjk");
+                navigate(state?.pathname || "/", {replace:true});
             }
         } catch (e) {
-
+            
         }
 
     }
